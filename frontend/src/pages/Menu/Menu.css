@@ -1,0 +1,149 @@
+/* ── Page shell ─────────────────────────────────────────── */
+.menu-page {
+  padding-top: 80px;
+}
+
+/* ── Hero — full-viewport-width breakout ────────────────── */
+.menu-hero {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 300px;
+  background: url('/header_img.png') center 40% / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.65) 100%);
+}
+
+.menu-hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+  padding: 0 20px;
+}
+
+.menu-hero-content h1 {
+  font-size: clamp(38px, 5.5vw, 64px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin: 0;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+
+/* ── Body ────────────────────────────────────────────────── */
+.menu-body {
+  padding: 48px 0 90px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Category filters ────────────────────────────────────── */
+.menu-categories-wrap {
+  margin-bottom: 40px;
+}
+
+.menu-categories-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #999;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.menu-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cat-btn {
+  padding: 9px 22px;
+  border: 1.5px solid #d8e0d8;
+  border-radius: 50px;
+  background: #fff;
+  color: #555;
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  white-space: nowrap;
+}
+
+.cat-btn:hover {
+  border-color: #2e7d32;
+  color: #2e7d32;
+  background: #f0faf0;
+}
+
+.cat-btn.active {
+  background: #2e7d32;
+  border-color: #2e7d32;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(46,125,50,0.25);
+}
+
+/* ── Section header row ─────────────────────────────────── */
+.menu-section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.menu-section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.menu-section-count {
+  font-size: 13px;
+  color: #999;
+  font-weight: 400;
+}
+
+/* ── Food grid ───────────────────────────────────────────── */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+/* ── Empty / Loading ─────────────────────────────────────── */
+.menu-empty {
+  text-align: center;
+  padding: 80px 0;
+  color: #aaa;
+  font-size: 15px;
+}
+
+.menu-empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.menu-empty p {
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .menu-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .menu-hero  { height: 210px; }
+  .menu-body  { padding: 32px 0 60px; }
+  .menu-grid  { grid-template-columns: 1fr; gap: 18px; }
+}

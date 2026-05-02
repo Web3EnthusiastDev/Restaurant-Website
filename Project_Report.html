@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bhawalpur Foods — Project Report</title>
+  <style>
+    body {
+      font-family: Calibri, Arial, sans-serif;
+      font-size: 11pt;
+      color: #1a1a1a;
+      margin: 2.5cm 3cm;
+      line-height: 1.6;
+    }
+
+    /* ── Cover ── */
+    .cover {
+      text-align: center;
+      page-break-after: always;
+      padding-top: 100px;
+    }
+    .cover h1 {
+      font-size: 32pt;
+      color: #1b5e20;
+      margin-bottom: 6px;
+    }
+    .cover .subtitle {
+      font-size: 14pt;
+      color: #555;
+      margin-bottom: 40px;
+    }
+    .cover .meta {
+      font-size: 11pt;
+      color: #444;
+      margin-top: 60px;
+      line-height: 2;
+    }
+    .cover .badge {
+      display: inline-block;
+      background: #e8f5e9;
+      color: #2e7d32;
+      border: 1px solid #a5d6a7;
+      border-radius: 4px;
+      padding: 4px 14px;
+      font-size: 10pt;
+      margin: 4px;
+    }
+
+    /* ── Headings ── */
+    h1 { font-size: 20pt; color: #1b5e20; border-bottom: 2px solid #2e7d32; padding-bottom: 4px; margin-top: 30px; }
+    h2 { font-size: 15pt; color: #2e7d32; margin-top: 24px; }
+    h3 { font-size: 12pt; color: #333; margin-top: 18px; }
+
+    /* ── Tables ── */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 14px 0;
+      font-size: 10pt;
+    }
+    th {
+      background: #2e7d32;
+      color: #fff;
+      padding: 8px 12px;
+      text-align: left;
+    }
+    td {
+      padding: 7px 12px;
+      border: 1px solid #c8e6c9;
+    }
+    tr:nth-child(even) td { background: #f1f8f1; }
+
+    /* ── Code ── */
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      background: #f4f4f4;
+      border: 1px solid #ddd;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 9.5pt;
+    }
+    pre {
+      font-family: Consolas, "Courier New", monospace;
+      background: #f4f4f4;
+      border: 1px solid #ddd;
+      padding: 12px 16px;
+      border-radius: 4px;
+      font-size: 9.5pt;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      page-break-inside: avoid;
+    }
+
+    /* ── Callout boxes ── */
+    .box {
+      border-left: 4px solid #2e7d32;
+      background: #f1f8f1;
+      padding: 10px 16px;
+      margin: 14px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .box-blue {
+      border-left: 4px solid #1565c0;
+      background: #e8f0fe;
+      padding: 10px 16px;
+      margin: 14px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .box-orange {
+      border-left: 4px solid #e65100;
+      background: #fff3e0;
+      padding: 10px 16px;
+      margin: 14px 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* ── Flow steps ── */
+    .flow {
+      counter-reset: step;
+      margin: 14px 0;
+    }
+    .flow-step {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+    .flow-num {
+      background: #2e7d32;
+      color: #fff;
+      border-radius: 50%;
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      text-align: center;
+      line-height: 22px;
+      font-size: 9.5pt;
+      font-weight: bold;
+      margin-right: 10px;
+      margin-top: 1px;
+    }
+
+    /* ── Misc ── */
+    ul { margin: 8px 0; padding-left: 22px; }
+    li { margin-bottom: 4px; }
+    .page-break { page-break-before: always; }
+    .toc-item { margin: 5px 0; }
+    .toc-item a { color: #1b5e20; text-decoration: none; }
+    .section-label {
+      font-size: 8.5pt;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════ COVER PAGE -->
+<div class="cover">
+  <h1>Bhawalpur Foods</h1>
+  <div class="subtitle">Full-Stack Restaurant Web Application — Project Report</div>
+
+  <div>
+    <span class="badge">React 18</span>
+    <span class="badge">Node.js / Express</span>
+    <span class="badge">MongoDB</span>
+    <span class="badge">Stripe Payments</span>
+    <span class="badge">Vite</span>
+  </div>
+
+  <div class="meta">
+    <strong>Project Type:</strong> Full-Stack Web Application<br/>
+    <strong>Restaurant:</strong> Bhawalpur Foods — Biryani Point &amp; Restaurant<br/>
+    <strong>Location:</strong> Bahawalpur, Pakistan<br/>
+    <strong>Report Date:</strong> April 2026<br/>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ TABLE OF CONTENTS -->
+<h1>Table of Contents</h1>
+<div class="toc-item">1. &nbsp; Project Overview</div>
+<div class="toc-item">2. &nbsp; Technology Stack</div>
+<div class="toc-item">3. &nbsp; System Architecture</div>
+<div class="toc-item">4. &nbsp; Frontend — Customer Website</div>
+<div class="toc-item">&nbsp;&nbsp;&nbsp;&nbsp; 4.1 &nbsp; Pages &amp; Routes</div>
+<div class="toc-item">&nbsp;&nbsp;&nbsp;&nbsp; 4.2 &nbsp; Components</div>
+<div class="toc-item">&nbsp;&nbsp;&nbsp;&nbsp; 4.3 &nbsp; Global State (StoreContext)</div>
+<div class="toc-item">&nbsp;&nbsp;&nbsp;&nbsp; 4.4 &nbsp; Cart Flow</div>
+<div class="toc-item">&nbsp;&nbsp;&nbsp;&nbsp; 4.5 &nbsp; Order Checkout &amp; Payment</div>
+<div class="toc-item">5. &nbsp; Payment Gateway Integration (Stripe)</div>
+<div class="toc-item">6. &nbsp; Admin Panel</div>
+<div class="toc-item">&nbsp;&nbsp;&nbsp;&nbsp; 6.1 &nbsp; Admin Pages</div>
+<div class="toc-item">&nbsp;&nbsp;&nbsp;&nbsp; 6.2 &nbsp; Edit Food Item Feature</div>
+<div class="toc-item">7. &nbsp; Backend API</div>
+<div class="toc-item">&nbsp;&nbsp;&nbsp;&nbsp; 7.1 &nbsp; API Endpoints</div>
+<div class="toc-item">&nbsp;&nbsp;&nbsp;&nbsp; 7.2 &nbsp; Database Models</div>
+<div class="toc-item">&nbsp;&nbsp;&nbsp;&nbsp; 7.3 &nbsp; Authentication Pattern</div>
+<div class="toc-item">8. &nbsp; Design System</div>
+<div class="toc-item">9. &nbsp; Environment Configuration</div>
+<div class="toc-item">10. Development Setup &amp; Running the Project</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ 1 -->
+<div class="page-break"></div>
+<h1>1. Project Overview</h1>
+
+<p>
+  <strong>Bhawalpur Foods</strong> is a full-stack restaurant web application built for
+  <em>Bhawalpur Foods — Biryani Point &amp; Restaurant</em>, a desi cuisine restaurant
+  established in 1990 and operating across multiple branches in Bahawalpur, Pakistan.
+</p>
+<p>
+  The application serves three user groups simultaneously:
+</p>
+<ul>
+  <li><strong>Customers</strong> — browse the menu, build a cart, and place orders via WhatsApp or online card payment (Stripe).</li>
+  <li><strong>Admins</strong> — manage the food menu (add, edit, remove items) and track/update order statuses through a dedicated dashboard.</li>
+  <li><strong>Visitors</strong> — learn about the restaurant, find branch locations, and contact the team.</li>
+</ul>
+
+<div class="box">
+  <strong>Key differentiator:</strong> Orders can be placed through two channels —
+  a pre-filled WhatsApp message (no account needed) or a secure Stripe hosted checkout
+  for card payments. Both channels record the order in the database for admin tracking.
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ 2 -->
+<h1>2. Technology Stack</h1>
+
+<table>
+  <tr><th>Layer</th><th>Technology</th><th>Version / Notes</th></tr>
+  <tr><td>Frontend UI</td><td>React</td><td>v18 with hooks</td></tr>
+  <tr><td>Frontend Bundler</td><td>Vite</td><td>v5 — fast HMR</td></tr>
+  <tr><td>Admin UI</td><td>React + Vite</td><td>Separate app, same stack</td></tr>
+  <tr><td>Routing</td><td>React Router DOM</td><td>v6</td></tr>
+  <tr><td>HTTP Client</td><td>Axios</td><td>Used in both frontend &amp; admin</td></tr>
+  <tr><td>Notifications</td><td>React Toastify</td><td>Toast messages for all feedback</td></tr>
+  <tr><td>Backend</td><td>Node.js + Express</td><td>ES Modules (type: "module")</td></tr>
+  <tr><td>Database</td><td>MongoDB + Mongoose</td><td>Local or Atlas</td></tr>
+  <tr><td>Authentication</td><td>JSON Web Tokens (JWT)</td><td>Token sent in headers.token</td></tr>
+  <tr><td>Password Hashing</td><td>bcrypt</td><td>Salt rounds from .env</td></tr>
+  <tr><td>File Uploads</td><td>Multer</td><td>Food images → uploads/ folder</td></tr>
+  <tr><td>Payment Gateway</td><td>Stripe</td><td>v16 SDK — hosted checkout sessions</td></tr>
+  <tr><td>Process Manager</td><td>nodemon</td><td>Auto-restart on file changes</td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════════════════ 3 -->
+<div class="page-break"></div>
+<h1>3. System Architecture</h1>
+
+<p>
+  The project is split into three completely independent applications.
+  Each has its own <code>package.json</code> and <code>node_modules</code>.
+  They communicate only via HTTP.
+</p>
+
+<pre>
+/
+├── frontend/          Customer website  (React + Vite)  → localhost:5174
+├── admin/             Admin dashboard   (React + Vite)  → localhost:5175
+└── backend/           REST API          (Express)       → localhost:5000
+    ├── controllers/
+    ├── models/
+    ├── routes/
+    ├── middleware/
+    ├── uploads/       Uploaded food images
+    ├── seed.js        Sample data seeder
+    └── createAdmin.js Admin user creator
+</pre>
+
+<h2>3.1 Data Flow</h2>
+<ul>
+  <li>Both <strong>frontend</strong> and <strong>admin</strong> call the same backend REST API.</li>
+  <li>The backend URL is hardcoded in <code>frontend/src/context/StoreContext.jsx</code> and <code>admin/src/App.jsx</code>.</li>
+  <li>MongoDB stores users, food items, orders, and cart data.</li>
+  <li>Uploaded food images are stored on disk in <code>backend/uploads/</code> and served as static files at <code>/images/:filename</code>.</li>
+</ul>
+
+<!-- ═══════════════════════════════════════════════════════════════════ 4 -->
+<div class="page-break"></div>
+<h1>4. Frontend — Customer Website</h1>
+
+<h2>4.1 Pages &amp; Routes</h2>
+
+<table>
+  <tr><th>URL Route</th><th>Component</th><th>Description</th></tr>
+  <tr><td><code>/</code></td><td>Home</td><td>Landing page: full-width hero banner, Bhawalpur Special Deal card, 6-item Legendary Deals grid</td></tr>
+  <tr><td><code>/menu</code></td><td>Menu</td><td>Live food grid fetched from backend; dynamic category filter tabs; responsive 3→2→1 column grid</td></tr>
+  <tr><td><code>/locations</code></td><td>Locations</td><td>Static branch cards with phone numbers and Google Maps "Get Directions" links</td></tr>
+  <tr><td><code>/about</code></td><td>About</td><td>Restaurant heritage (est. 1990), Mission &amp; Values cards</td></tr>
+  <tr><td><code>/place-order</code></td><td>OrderCheckout</td><td>Checkout form — WhatsApp order or Stripe card payment with order summary and delivery fee</td></tr>
+  <tr><td><code>/verify</code></td><td>PaymentVerify</td><td>Stripe redirect handler — verifies payment server-side and shows success/failure screen</td></tr>
+</table>
+
+<h2>4.2 Components</h2>
+
+<table>
+  <tr><th>Component</th><th>Path</th><th>Purpose</th></tr>
+  <tr><td><code>Navbar</code></td><td>components/Navbar/</td><td>Fixed site header — logo, navigation links, cart icon that opens CartDrawer</td></tr>
+  <tr><td><code>HomeHero</code></td><td>components/HomeHero/</td><td>Full-viewport hero banner on the Home page with tagline and "View Full Menu" CTA. Not the site header.</td></tr>
+  <tr><td><code>FoodCard</code></td><td>components/FoodCard/</td><td>Single food item card used in the Menu grid — image with fallback, name, price, Add to Cart button</td></tr>
+  <tr><td><code>CartDrawer</code></td><td>components/CartDrawer/</td><td>Slide-in right-side overlay showing cart items, quantities, total, Place Order and Clear Cart buttons</td></tr>
+  <tr><td><code>Footer</code></td><td>components/Footer/</td><td>Site footer with logo, description, and social media links</td></tr>
+</table>
+
+<div class="box-orange">
+  <strong>Naming note:</strong> Components were renamed from their original names for clarity.
+  <code>Header</code> → <code>HomeHero</code> (it is a hero, not a site header),
+  <code>FoodItem</code> → <code>FoodCard</code> (it is a UI card),
+  <code>CartSidebar</code> → <code>CartDrawer</code> (it slides in as a drawer),
+  <code>PlaceOrder</code> page → <code>OrderCheckout</code> (describes the action).
+</div>
+
+<h2>4.3 Global State — StoreContext</h2>
+
+<p>
+  <code>frontend/src/context/StoreContext.jsx</code> is the single React context that wraps the entire app.
+  It exposes:
+</p>
+
+<table>
+  <tr><th>Value</th><th>Type</th><th>Description</th></tr>
+  <tr><td><code>food_list</code></td><td>Array</td><td>All food items fetched from <code>GET /api/food/list</code> on mount</td></tr>
+  <tr><td><code>cartItems</code></td><td>Object</td><td><code>{ itemId: quantity }</code> — synced to backend for logged-in users</td></tr>
+  <tr><td><code>token</code> / <code>setToken</code></td><td>String</td><td>JWT stored in localStorage</td></tr>
+  <tr><td><code>url</code></td><td>String</td><td>Backend base URL (hardcoded at line 9)</td></tr>
+  <tr><td><code>addToCart(id)</code></td><td>Function</td><td>Increments cart quantity</td></tr>
+  <tr><td><code>removeFromCart(id)</code></td><td>Function</td><td>Decrements cart quantity</td></tr>
+  <tr><td><code>getTotalCartAmount()</code></td><td>Function</td><td>Returns cart subtotal in RS.</td></tr>
+  <tr><td><code>setCartItems</code></td><td>Function</td><td>Directly sets cart (used to clear after order)</td></tr>
+</table>
+
+<h2>4.4 Cart Flow</h2>
+<p>There is no dedicated <code>/cart</code> page. The cart is a slide-in drawer:</p>
+<ul>
+  <li>Navbar cart icon toggles <code>showCart</code> state in <code>App.jsx</code></li>
+  <li><code>CartDrawer</code> renders when <code>showCart = true</code></li>
+  <li>Closed by clicking the dark backdrop or the ✕ button</li>
+  <li><strong>"Place Order"</strong> navigates to <code>/place-order</code> without clearing the cart</li>
+  <li><strong>"Clear Cart"</strong> empties <code>cartItems</code> immediately</li>
+</ul>
+
+<h2>4.5 Order Checkout &amp; Payment</h2>
+
+<p>The <code>OrderCheckout</code> page collects all order details and supports two payment methods.</p>
+
+<h3>Form Fields</h3>
+<ul>
+  <li>Your Name (required)</li>
+  <li>Phone Number (required)</li>
+  <li>Order Type — Delivery or Pickup</li>
+  <li>Branch Near You (required)</li>
+  <li>Delivery Address (required only when Order Type = Delivery)</li>
+</ul>
+
+<h3>Order Summary</h3>
+<p>Before the payment buttons, an order summary card shows:</p>
+<ul>
+  <li>Subtotal (from cart)</li>
+  <li>Delivery Fee — RS. 200 for Delivery, RS. 0 for Pickup</li>
+  <li>Grand Total</li>
+</ul>
+
+<h3>Payment Options</h3>
+<table>
+  <tr><th>Option</th><th>How it works</th></tr>
+  <tr>
+    <td>WhatsApp Order</td>
+    <td>Builds a pre-filled message with order details and total. Opens <code>wa.me/&lt;branch_phone&gt;</code> in a new tab. Cart is cleared and user returns to Home.</td>
+  </tr>
+  <tr>
+    <td>Pay Online (Stripe)</td>
+    <td>Validates form, POSTs order data to backend, receives a Stripe session URL, redirects user to Stripe's hosted checkout page.</td>
+  </tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════════════════ 5 -->
+<div class="page-break"></div>
+<h1>5. Payment Gateway Integration (Stripe)</h1>
+
+<div class="box-blue">
+  <strong>Important for Pakistan:</strong> Stripe does not support Pakistan as a live merchant country —
+  Pakistani businesses cannot receive payouts to local bank accounts via Stripe directly.
+  The integration works perfectly in <strong>test mode</strong> for development and demos.
+  For a live production setup in Pakistan, consider <strong>JazzCash</strong> or <strong>EasyPaisa</strong>.
+</div>
+
+<h2>5.1 Complete Payment Flow</h2>
+
+<div class="flow">
+  <div class="flow-step"><div class="flow-num">1</div><div>User fills the OrderCheckout form and selects <strong>Pay Online</strong>.</div></div>
+  <div class="flow-step"><div class="flow-num">2</div><div>Frontend validates all required fields, then POSTs <code>{ items, amount, deliveryFee, address }</code> to <code>POST /api/order/stripe</code>.</div></div>
+  <div class="flow-step"><div class="flow-num">3</div><div>Backend pre-generates a MongoDB <code>_id</code>, creates a Stripe Checkout Session with that ID embedded in the redirect URLs, then saves the order to the database with the <code>stripeSessionId</code>.</div></div>
+  <div class="flow-step"><div class="flow-num">4</div><div>Backend returns <code>{ session_url }</code>. Frontend redirects: <code>window.location.href = session_url</code>.</div></div>
+  <div class="flow-step"><div class="flow-num">5</div><div>User completes payment on Stripe's secure hosted checkout page.</div></div>
+  <div class="flow-step"><div class="flow-num">6</div><div>Stripe redirects to <code>/verify?success=true&amp;orderId=&lt;id&gt;</code> (or <code>success=false</code> on cancel).</div></div>
+  <div class="flow-step"><div class="flow-num">7</div><div><code>PaymentVerify</code> page POSTs <code>{ orderId }</code> to <code>POST /api/order/verify</code>.</div></div>
+  <div class="flow-step"><div class="flow-num">8</div><div>Backend retrieves the order, calls <code>stripe.checkout.sessions.retrieve(order.stripeSessionId)</code>, and checks <code>payment_status === "paid"</code> directly with Stripe — <strong>does not trust the URL parameter</strong>.</div></div>
+  <div class="flow-step"><div class="flow-num">9</div><div>If paid: marks <code>order.payment = true</code>, clears user cart → returns success. If not paid: deletes the pending order → returns failure.</div></div>
+  <div class="flow-step"><div class="flow-num">10</div><div>Frontend shows success or failure screen with navigation options.</div></div>
+</div>
+
+<h2>5.2 Security Considerations</h2>
+<ul>
+  <li>The order is saved to the database <strong>only after</strong> the Stripe session is successfully created — no orphan records if Stripe fails.</li>
+  <li>Payment verification uses the <strong>Stripe API directly</strong> — the <code>success=true</code> URL parameter is never trusted alone.</li>
+  <li>The <code>stripeSessionId</code> is stored on the order and used for server-side verification.</li>
+</ul>
+
+<h2>5.3 Test Card Details</h2>
+<table>
+  <tr><th>Field</th><th>Value</th></tr>
+  <tr><td>Card Number</td><td>4242 4242 4242 4242</td></tr>
+  <tr><td>Expiry Date</td><td>Any future date (e.g. 12/26)</td></tr>
+  <tr><td>CVC</td><td>Any 3 digits (e.g. 123)</td></tr>
+  <tr><td>Name / ZIP</td><td>Any value</td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════════════════ 6 -->
+<div class="page-break"></div>
+<h1>6. Admin Panel</h1>
+
+<table>
+  <tr><th>Detail</th><th>Value</th></tr>
+  <tr><td>URL</td><td>http://localhost:5175</td></tr>
+  <tr><td>Login Email</td><td>admin@bhawalpur.com</td></tr>
+  <tr><td>Login Password</td><td>admin1234</td></tr>
+</table>
+
+<div class="box">
+  Admin credentials are created by running <code>node createAdmin.js</code> in the backend directory.
+  New users registered through the public API always get <code>role: "user"</code>.
+  There is no self-serve admin registration — the admin account must be seeded.
+</div>
+
+<h2>6.1 Admin Pages</h2>
+
+<table>
+  <tr><th>Route</th><th>Page</th><th>Purpose</th></tr>
+  <tr><td><code>/</code></td><td>Login</td><td>Admin authentication — returns JWT with <code>role: "admin"</code></td></tr>
+  <tr><td><code>/add</code></td><td>Add</td><td>Upload a new food item — name, description, category, price, image</td></tr>
+  <tr><td><code>/list</code></td><td>List</td><td>View all food items in a table — Edit or Remove each item</td></tr>
+  <tr><td><code>/edit/:id</code></td><td>Edit</td><td>Edit an existing food item — pre-populated form, image replacement optional</td></tr>
+  <tr><td><code>/orders</code></td><td>Orders</td><td>View all orders from all customers; update order status</td></tr>
+</table>
+
+<h2>6.2 Edit Food Item Feature</h2>
+<p>
+  The <strong>Edit</strong> page (<code>/edit/:id</code>) was added to allow admins to update food item details without
+  having to remove and re-add the item. It works as follows:
+</p>
+<ul>
+  <li>Admin clicks the <strong>✏️ Edit</strong> button on any row in the List page.</li>
+  <li>The Edit form loads with the item's current name, description, category, price, and image pre-filled.</li>
+  <li>The image is optional to change — if no new image is uploaded, the existing image is kept.</li>
+  <li>If a new image is uploaded, the old image file is deleted from <code>backend/uploads/</code> and the new one is saved.</li>
+  <li>Clicking <strong>SAVE CHANGES</strong> sends a <code>POST /api/food/update</code> request and returns to the List page.</li>
+  <li>Clicking <strong>CANCEL</strong> returns to the List page without saving.</li>
+</ul>
+
+<h2>6.3 Food Categories</h2>
+<p>Available in both Add and Edit forms:</p>
+<p>
+  <code>Biryani</code> &nbsp;·&nbsp; <code>Karahi</code> &nbsp;·&nbsp; <code>BBQ</code> &nbsp;·&nbsp;
+  <code>Deals</code> &nbsp;·&nbsp; <code>Bread</code> &nbsp;·&nbsp; <code>Desserts</code> &nbsp;·&nbsp;
+  <code>Drinks</code> &nbsp;·&nbsp; <code>Salad</code> &nbsp;·&nbsp; <code>Rolls</code> &nbsp;·&nbsp;
+  <code>Sandwich</code> &nbsp;·&nbsp; <code>Cake</code> &nbsp;·&nbsp; <code>Pure Veg</code> &nbsp;·&nbsp;
+  <code>Pasta</code> &nbsp;·&nbsp; <code>Noodles</code>
+</p>
+
+<!-- ═══════════════════════════════════════════════════════════════════ 7 -->
+<div class="page-break"></div>
+<h1>7. Backend API</h1>
+
+<h2>7.1 API Endpoints</h2>
+
+<table>
+  <tr><th>Method</th><th>Route</th><th>Auth</th><th>Description</th></tr>
+  <tr><td>GET</td><td>/api/food/list</td><td>None</td><td>Returns all food items</td></tr>
+  <tr><td>POST</td><td>/api/food/add</td><td>Admin</td><td>Adds new food item — multipart form with image upload via multer</td></tr>
+  <tr><td>POST</td><td>/api/food/remove</td><td>Admin</td><td>Removes food item and deletes image file from uploads/</td></tr>
+  <tr><td>POST</td><td>/api/food/update</td><td>Admin</td><td>Updates food item fields; image upload is optional — replaces old image if new one provided</td></tr>
+  <tr><td>POST</td><td>/api/user/register</td><td>None</td><td>Registers new user — returns JWT and role</td></tr>
+  <tr><td>POST</td><td>/api/user/login</td><td>None</td><td>Authenticates user — returns JWT and role</td></tr>
+  <tr><td>POST</td><td>/api/cart/add</td><td>User</td><td>Adds item to cart in user document</td></tr>
+  <tr><td>POST</td><td>/api/cart/remove</td><td>User</td><td>Removes item from cart in user document</td></tr>
+  <tr><td>POST</td><td>/api/cart/get</td><td>User</td><td>Returns user's saved cart data</td></tr>
+  <tr><td>POST</td><td>/api/order/place</td><td>User</td><td>Places COD order — used by admin panel flow</td></tr>
+  <tr><td>POST</td><td>/api/order/stripe</td><td>None</td><td>Creates Stripe session and saves pending order with stripeSessionId; returns session_url</td></tr>
+  <tr><td>POST</td><td>/api/order/verify</td><td>None</td><td>Verifies payment via Stripe API; marks order paid or deletes it</td></tr>
+  <tr><td>GET</td><td>/api/order/list</td><td>Admin</td><td>Returns all orders</td></tr>
+  <tr><td>POST</td><td>/api/order/status</td><td>Admin</td><td>Updates order status string</td></tr>
+  <tr><td>GET</td><td>/images/:filename</td><td>None</td><td>Serves uploaded food images from uploads/ folder</td></tr>
+</table>
+
+<h2>7.2 Database Models</h2>
+
+<h3>User Model</h3>
+<table>
+  <tr><th>Field</th><th>Type</th><th>Notes</th></tr>
+  <tr><td>name</td><td>String</td><td>Required</td></tr>
+  <tr><td>email</td><td>String</td><td>Required, unique</td></tr>
+  <tr><td>password</td><td>String</td><td>bcrypt hashed</td></tr>
+  <tr><td>role</td><td>String</td><td>Default: "user" — set to "admin" manually</td></tr>
+  <tr><td>cartData</td><td>Object</td><td>{ itemId: quantity } — persisted cart</td></tr>
+</table>
+
+<h3>Food Model</h3>
+<table>
+  <tr><th>Field</th><th>Type</th><th>Notes</th></tr>
+  <tr><td>name</td><td>String</td><td>Required</td></tr>
+  <tr><td>description</td><td>String</td><td>Required</td></tr>
+  <tr><td>price</td><td>Number</td><td>Required — in RS.</td></tr>
+  <tr><td>image</td><td>String</td><td>Filename stored in uploads/</td></tr>
+  <tr><td>category</td><td>String</td><td>Required</td></tr>
+</table>
+
+<h3>Order Model</h3>
+<table>
+  <tr><th>Field</th><th>Type</th><th>Notes</th></tr>
+  <tr><td>userId</td><td>String</td><td>MongoDB user ID or "guest"</td></tr>
+  <tr><td>items</td><td>Array</td><td>Array of ordered items</td></tr>
+  <tr><td>amount</td><td>Number</td><td>Grand total including delivery fee</td></tr>
+  <tr><td>address</td><td>Object</td><td>{ name, phone, orderType, branch, deliveryAddress }</td></tr>
+  <tr><td>status</td><td>String</td><td>Default: "Food Processing"</td></tr>
+  <tr><td>date</td><td>Date</td><td>Auto-set on creation</td></tr>
+  <tr><td>payment</td><td>Boolean</td><td>true once payment confirmed</td></tr>
+  <tr><td>paymentMethod</td><td>String</td><td>"COD" or "Stripe"</td></tr>
+  <tr><td>stripeSessionId</td><td>String</td><td>Used for server-side Stripe verification</td></tr>
+  <tr><td>delivery.assigned</td><td>Boolean</td><td>Whether delivery person is assigned</td></tr>
+  <tr><td>delivery.person</td><td>String</td><td>Delivery person name</td></tr>
+  <tr><td>delivery.status</td><td>String</td><td>Default: "Not Assigned"</td></tr>
+</table>
+
+<h2>7.3 Authentication Pattern</h2>
+<ul>
+  <li>JWT token is sent in the request header as <code>headers.token</code> (not <code>Authorization: Bearer</code>).</li>
+  <li><code>authMiddleware</code> verifies the token and injects <code>userId</code> into <code>req.body</code>.</li>
+  <li>Admin verification is done inside each controller by querying <code>user.role === "admin"</code> — not in middleware.</li>
+  <li>Public endpoints (<code>/api/order/stripe</code>, <code>/api/order/verify</code>) do not use <code>authMiddleware</code> but still check <code>req.body.userId</code> if a token was optionally provided.</li>
+</ul>
+
+<!-- ═══════════════════════════════════════════════════════════════════ 8 -->
+<div class="page-break"></div>
+<h1>8. Design System</h1>
+
+<table>
+  <tr><th>Token</th><th>Value</th><th>Usage</th></tr>
+  <tr><td>Primary Green</td><td><code>#2e7d32</code></td><td>Buttons, headings, active states, badges</td></tr>
+  <tr><td>Dark Green (hover)</td><td><code>#1b5e20</code></td><td>Button hover states</td></tr>
+  <tr><td>Stripe Blue</td><td><code>#1565c0</code></td><td>Online payment button</td></tr>
+  <tr><td>Body Font</td><td>Outfit (Google Fonts)</td><td>All text throughout the site</td></tr>
+  <tr><td>Card Border Radius</td><td><code>14px</code></td><td>Food cards, form cards</td></tr>
+  <tr><td>Card Shadow</td><td><code>0 2px 10px rgba(0,0,0,0.06)</code></td><td>All card components</td></tr>
+  <tr><td>Page Padding Top</td><td><code>80px</code></td><td>Offset for fixed Navbar height</td></tr>
+  <tr><td>App Width</td><td><code>80% / margin: auto</code></td><td>Set in index.css — constrains all page content</td></tr>
+</table>
+
+<h2>8.1 Full-Width Breakout Technique</h2>
+<p>
+  When a section (like a hero banner) needs to break out of the 80% constraint to full viewport width:
+</p>
+<pre>
+.element {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+</pre>
+<p>Used in: <code>Menu</code> page hero, <code>HomeHero</code> component.</p>
+
+<!-- ═══════════════════════════════════════════════════════════════════ 9 -->
+<h1>9. Environment Configuration</h1>
+
+<p>Create <code>backend/.env</code> with the following variables:</p>
+
+<table>
+  <tr><th>Variable</th><th>Required</th><th>Description</th></tr>
+  <tr><td>MONGO_URL</td><td>Yes</td><td>MongoDB connection string (local or Atlas)</td></tr>
+  <tr><td>JWT_SECRET</td><td>Yes</td><td>Secret key for signing JWTs</td></tr>
+  <tr><td>SALT</td><td>Yes</td><td>bcrypt salt rounds (recommended: 10)</td></tr>
+  <tr><td>STRIPE_SECRET_KEY</td><td>Yes</td><td>Stripe secret key — <code>sk_test_...</code> for dev, <code>sk_live_...</code> for production</td></tr>
+  <tr><td>FRONTEND_URL</td><td>Yes</td><td>Base URL of the frontend — used in Stripe redirect URLs (e.g. <code>http://localhost:5174</code>)</td></tr>
+  <tr><td>PORT</td><td>No</td><td>Backend port — defaults to 4000 if not set (project uses 5000)</td></tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════════════════ 10 -->
+<div class="page-break"></div>
+<h1>10. Development Setup &amp; Running the Project</h1>
+
+<h2>10.1 Prerequisites</h2>
+<ul>
+  <li>Node.js v18 or higher</li>
+  <li>MongoDB running locally (<code>mongod</code>) or a MongoDB Atlas connection string</li>
+  <li>A Stripe account with a test secret key</li>
+</ul>
+
+<h2>10.2 First-Time Setup</h2>
+<pre>
+# 1. Install dependencies for all three apps
+cd frontend  &amp;&amp;  npm install
+cd ../admin  &amp;&amp;  npm install
+cd ../backend &amp;&amp; npm install
+
+# 2. Create backend/.env (see Section 9)
+
+# 3. Seed sample food items (optional — for local demo)
+cd backend
+node seed.js
+
+# 4. Create admin user
+node createAdmin.js
+# Output: admin@bhawalpur.com / admin1234
+</pre>
+
+<h2>10.3 Running All Three Servers</h2>
+<p>Open three terminal windows and run one command in each:</p>
+
+<table>
+  <tr><th>Terminal</th><th>Command</th><th>URL</th></tr>
+  <tr><td>1 — Backend</td><td><code>cd backend &amp;&amp; npm run server</code></td><td>http://localhost:5000</td></tr>
+  <tr><td>2 — Frontend</td><td><code>cd frontend &amp;&amp; npm run dev</code></td><td>http://localhost:5174</td></tr>
+  <tr><td>3 — Admin</td><td><code>cd admin &amp;&amp; npm run dev</code></td><td>http://localhost:5175</td></tr>
+</table>
+
+<h2>10.4 Switching Between Local and Deployed Backend</h2>
+<p>Update the backend URL in <strong>two files</strong> when switching environments:</p>
+<ul>
+  <li><code>frontend/src/context/StoreContext.jsx</code> — line 9</li>
+  <li><code>admin/src/App.jsx</code> — line 13</li>
+</ul>
+<p>Also update <code>FRONTEND_URL</code> in <code>backend/.env</code> to match the deployed frontend URL.</p>
+
+<h2>10.5 Testing the Payment Flow</h2>
+<div class="flow">
+  <div class="flow-step"><div class="flow-num">1</div><div>Add items to cart from the Menu page.</div></div>
+  <div class="flow-step"><div class="flow-num">2</div><div>Open the cart drawer and click <strong>Place Order</strong>.</div></div>
+  <div class="flow-step"><div class="flow-num">3</div><div>Fill in Name, Phone, and Branch. Select <strong>Pay Online</strong>.</div></div>
+  <div class="flow-step"><div class="flow-num">4</div><div>Click <strong>Pay Securely</strong> — you will be redirected to Stripe.</div></div>
+  <div class="flow-step"><div class="flow-num">5</div><div>Enter test card: <code>4242 4242 4242 4242</code> · any future expiry · any CVC.</div></div>
+  <div class="flow-step"><div class="flow-num">6</div><div>Click Pay — Stripe redirects back to <code>/verify</code>.</div></div>
+  <div class="flow-step"><div class="flow-num">7</div><div>Success screen appears. Check the Admin Orders page to see the confirmed order.</div></div>
+</div>
+
+<br/><br/>
+<hr/>
+<p style="text-align:center; color:#aaa; font-size:9pt;">
+  Bhawalpur Foods — Project Report &nbsp;|&nbsp; Generated April 2026 &nbsp;|&nbsp; Confidential
+</p>
+
+</body>
+</html>

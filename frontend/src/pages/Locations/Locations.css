@@ -1,0 +1,121 @@
+.locations-page {
+  padding-top: 80px;
+}
+
+/* Hero */
+.locations-hero {
+  position: relative;
+  height: 320px;
+  border-radius: 20px;
+  background: url('/header_img.png') center 50% / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.locations-hero-overlay {
+  position: absolute;
+  border-radius: 20px;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.locations-hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+}
+
+.locations-hero-content h1 {
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.locations-hero-content p {
+  font-size: 15px;
+  color: #ccc;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* Body */
+.locations-body {
+  padding: 60px 6vw 80px;
+}
+
+.branches-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.branch-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.branch-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.branch-img-placeholder {
+  width: 100%;
+  height: 160px;
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+}
+
+.branch-info {
+  padding: 22px 24px;
+}
+
+.branch-info h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2e7d32;
+  margin-bottom: 12px;
+}
+
+.branch-phone,
+.branch-address {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.branch-icon { font-size: 16px; }
+
+.directions-btn {
+  margin-top: 14px;
+  padding: 10px 24px;
+  background: transparent;
+  color: #2e7d32;
+  border: 2px solid #2e7d32;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.directions-btn:hover {
+  background: #2e7d32;
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .branches-grid { grid-template-columns: 1fr; }
+  .locations-hero { height: 240px; }
+  .locations-body { padding: 40px 4vw 60px; }
+}
